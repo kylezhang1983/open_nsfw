@@ -46,12 +46,9 @@ ENV PYTHONPATH $PYCAFFE_ROOT:$PYTHONPATH
 ENV PATH $CAFFE_ROOT/build/tools:$PYCAFFE_ROOT:$PATH
 RUN echo "$CAFFE_ROOT/build/lib" >> /etc/ld.so.conf.d/caffe.conf && ldconfig
 
-RUN mkdir open_nsfw && cd open_nsfw && \
-    git clone -b master --depth 1 https://github.com/limeng05/open_nsfw.git .
-
-ADD open_nsfw /workspace
+EXPOSE 7680
 
 WORKDIR /workspace
+RUN git clone -b master --depth 1 https://github.com/limeng05/open_nsfw.git .
 
-CMD ["python", "classify_nsfw_server.py 7680"]
-CMD ["python", "classify_nsfw_server.py 7681"]
+CMD ["python", "classify_nsfw_server.py", "7680"]

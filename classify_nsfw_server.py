@@ -88,8 +88,8 @@ pycaffe_dir = os.path.dirname(__file__)
 #image_data = open(args.input_file).read()
 
 # Pre-load caffe model.
-nsfw_net = caffe.Net('/datadrive/porn_image/open_nsfw/nsfw_model/deploy.prototxt',  # pylint: disable=invalid-name
-    '/datadrive/porn_image/open_nsfw/nsfw_model/resnet_50_1by2_nsfw.caffemodel', caffe.TEST)
+nsfw_net = caffe.Net('nsfw_model/deploy.prototxt',  # pylint: disable=invalid-name
+    'nsfw_model/resnet_50_1by2_nsfw.caffemodel', caffe.TEST)
 
 # Load transformer
 # Note that the parameters are hard-coded for best results
