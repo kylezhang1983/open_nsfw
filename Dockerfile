@@ -49,7 +49,7 @@ RUN echo "$CAFFE_ROOT/build/lib" >> /etc/ld.so.conf.d/caffe.conf && ldconfig
 RUN mkdir open_nsfw && cd open_nsfw && \
     git clone -b master --depth 1 https://github.com/limeng05/open_nsfw.git .
 
-ADD ./open_nsfw /workspace
+ADD open_nsfw /workspace
 
 WORKDIR /workspace
 
