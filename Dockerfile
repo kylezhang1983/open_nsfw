@@ -46,9 +46,9 @@ ENV PYTHONPATH $PYCAFFE_ROOT:$PYTHONPATH
 ENV PATH $CAFFE_ROOT/build/tools:$PYCAFFE_ROOT:$PATH
 RUN echo "$CAFFE_ROOT/build/lib" >> /etc/ld.so.conf.d/caffe.conf && ldconfig
 
-RUN git clone https://github.com/limeng05/open_nsfw.git .
+RUN git clone -b master --depth 1 https://github.com/limeng05/open_nsfw.git ./open_nsfw
 
-ADD open_nsfw /workspace
+ADD ./open_nsfw /workspace
 
 WORKDIR /workspace
 
