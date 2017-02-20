@@ -140,5 +140,5 @@ application = tornado.web.Application([
 ])
 
 if __name__ == '__main__':
-    application.listen(7680)
+    application.listen(int(sys.argv[1]))
     tornado.ioloop.IOLoop.current().start()
